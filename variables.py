@@ -1,18 +1,18 @@
-word2vec_path = 'weights/glove_vectors.pickle'
-word2vec_zip_path = 'weights/glove_vectors.zip'
+word2vec_path = 'data/glove_vectors.pickle'
+word2vec_zip_path = 'data/glove_vectors.zip'
 
-vocabulary_path = 'weights/vocabulary.pickle'
-data_feature_path = 'weights/features.npz'
+vocabulary_path = 'data/vocabulary.pickle'
+data_feature_path = 'data/features.npz'
 
-model_weights = 'weights/model_weights.h5'
-model_converter = 'weights/model_converter.tflite'
+model_weights = 'data/model_weights.h5'
+model_converter = 'data/model_converter.tflite'
 
-fmodel_weights = 'weights/feature_model_weights.h5'
-fmodel_converter = 'weights/feature_model_converter.tflite'
+fmodel_weights = 'data/feature_model_weights.h5'
+fmodel_converter = 'data/feature_model_converter.tflite'
 
-n_neighbour_weights = 'weights/nearest_neighbour.pickle'
-encoder_dict_path = 'weights/label_encoder dict.pickle'
-data_path = 'weights/Student Concerns_5.csv'
+n_neighbour_weights = 'data/nearest_neighbour.pickle'
+encoder_dict_path = 'data/label_encoder dict.pickle'
+data_path = 'data/Student Concerns_5.csv'
 
 seed = 42
 database = 'SCRMS'
