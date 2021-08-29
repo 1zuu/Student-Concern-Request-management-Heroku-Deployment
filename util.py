@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from variables import*
 
 def word2vector():
-    word2vec_zip = zipfile.ZipFile(word2vec_zip_path)
+    word2vec_zip = zipfile.ZipFile(word2vec_zip_path, "r")
     data = word2vec_zip.open(word2vec_path)
     word2vec = pickle.load(data)
     return word2vec
