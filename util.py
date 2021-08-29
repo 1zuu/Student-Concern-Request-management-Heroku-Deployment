@@ -1,6 +1,8 @@
 import json
 import pickle
-import zipfile
+import bz2
+import pickle
+import _pickle as cPickle
 import pandas as pd
 import numpy as np
 import pandas as pd
@@ -13,9 +15,8 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from variables import*
 
 def word2vector():
-    word2vec_zip = zipfile.ZipFile(word2vec_zip_path, "r")
-    data = word2vec_zip.open(word2vec_path)
-    word2vec = pickle.load(data)
+    data = bz2.BZ2File(word2vec_cPickle_path, 'rb')
+    word2vec = cPickle.load(data)
     return word2vec
 
 def lemmatization(lemmatizer,sentence):

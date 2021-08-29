@@ -1,5 +1,4 @@
-word2vec_path = 'data/glove_vectors.pickle'
-word2vec_zip_path = 'data/glove_vectors.zip'
+word2vec_cPickle_path = 'weights/glove_vectors.pbz2'
 
 vocabulary_path = 'data/vocabulary.pickle'
 data_feature_path = 'data/features.npz'
