@@ -1,6 +1,8 @@
-word2vec_cPickle_path = 'data/glove_vectors.bz2'
+word2vec_path = 'data/pickle_data/glove_vectors.pickle'
+vocabulary_path = 'data/pickle_data/vocabulary.pickle'
+n_neighbour_weights = 'data/pickle_data/nearest_neighbour.pickle'
+encoder_dict_path = 'data/pickle_data/label_encoder dict.pickle'
 
-vocabulary_path = 'data/vocabulary.pickle'
 data_feature_path = 'data/features.npz'
 
 model_weights = 'data/model_weights.h5'
@@ -9,8 +11,6 @@ model_converter = 'data/model_converter.tflite'
 fmodel_weights = 'data/feature_model_weights.h5'
 fmodel_converter = 'data/feature_model_converter.tflite'
 
-n_neighbour_weights = 'data/nearest_neighbour.pickle'
-encoder_dict_path = 'data/label_encoder dict.pickle'
 data_path = 'data/Student Concerns_5.csv'
 
 seed = 42
