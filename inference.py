@@ -72,7 +72,6 @@ class SCRM_Inference(object):
     def make_response(self, request):
         concern = request['concern']
         solution, categories = self.predict_best_solution(concern)
-
         response = {
             'concern':concern,
             'solution': solution,
