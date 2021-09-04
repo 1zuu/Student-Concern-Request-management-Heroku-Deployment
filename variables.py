@@ -1,7 +1,7 @@
-word2vec_path = 'data/lfs/glove_vectors.pickle'
+word2vec_path = 'data/LFS/glove_vectors.npz'
 vocabulary_path = 'data/vocabulary.pickle'
 n_neighbour_weights = 'data/nearest_neighbour.pickle'
-encoder_dict_path = 'data/label_encoder dict.pickle'
+encoder_dict_path = 'data/label_encoder.pickle'
 
 data_feature_path = 'data/features.npz'
 

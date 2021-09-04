@@ -12,8 +12,8 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from variables import*
 
 def word2vector():
-    with open(word2vec_path, 'rb') as pickle_data:
-        word2vec = pickle.load(pickle_data)
+    word2vec = np.load(word2vec_path, allow_pickle=True)
+    word2vec = word2vec['name1'].tolist()
     return word2vec
 
 def lemmatization(lemmatizer,sentence):
