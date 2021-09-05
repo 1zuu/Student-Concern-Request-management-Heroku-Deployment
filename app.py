@@ -17,10 +17,9 @@ def predictions():
         return jsonify(response)
 
     except Exception as e:
-        print(e)
-        # return jsonify({
-        #     "error": str(e)
-        # })
+        return jsonify({
+            "error": str(e)
+        })
 
 if __name__ == '__main__':
     app.run(debug=True, host=heroku_url, port=heroku_port, threaded=False, use_reloader=False)
