@@ -18,6 +18,7 @@ database = 'SCRMS'
 db_collection = 'concerns'
 live_collection = 'live_concerns'
 db_url = "mongodb+srv://admin:admin@cluster0.lx3sd.mongodb.net/test"
+model_url = "https://student-concern-request-manage.herokuapp.com/concern"
 
 heroku_url = '0.0.0.0'
 heroku_port = 5000
