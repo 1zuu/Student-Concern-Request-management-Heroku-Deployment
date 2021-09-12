@@ -43,8 +43,8 @@ try:
     db = client[database]
     client.server_info()
 
-except:
-    print("Error: Unable to connect to database.")
+except Exception as e:
+    print(e)
 
 @app.route("/insert", methods=["POST"])
 def insert():
