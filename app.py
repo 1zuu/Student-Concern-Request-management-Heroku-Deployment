@@ -57,7 +57,7 @@ def insert():
         else:
            concerns_data['student_id'] = str(int(data[-1]['student_id']) + 1)
         
-        if list(concerns_data.keys()) == ['student_id', 'Gender', 'Age Group' , 'Year']:
+        if set(list(concerns_data.keys())) == set(['student_id', 'Gender', 'Age Group' , 'Year']):
 
             dbResponse = db[live_collection].insert_one(concerns_data)
             return Response(
