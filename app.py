@@ -27,12 +27,14 @@
 
 import json
 from pymongo import MongoClient
+from flask_cors import CORS
 from bson.objectid import ObjectId
 from flask import Flask, Response, request
 from inference import SCRM_Inference
 from variables import*
 
 app = Flask(__name__)
+CORS(app)
 
 model = SCRM_Inference()
 model.data_to_features()
