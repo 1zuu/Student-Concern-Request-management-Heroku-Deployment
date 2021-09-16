@@ -29,6 +29,7 @@ import json
 from pymongo import MongoClient
 from flask_cors import CORS
 from bson.objectid import ObjectId
+from flask.views import View
 from flask import Flask, Response, request
 from inference import SCRM_Inference
 from variables import*
@@ -83,66 +84,66 @@ def insert():
     except Exception as e:
         print(e)
 
-@app.route("/request", methods=["GET"])
-def get():
+# @app.route("/request", methods=["GET"])
+# def get():
+#     try:
+#         cursor = db[live_collection].find()
+#         data = list(cursor)
+#         data_Request = [data_dict for data_dict in data if data_dict['Concern_Type'] == 'request']
+#         for param in data_Request:
+#             param["_id"] = str(param["_id"])
+#         return Response(
+#                     response=json.dumps(data_Request), 
+#                     status=200, 
+#                     mimetype="application/json"
+#                     )
+
+
+#     except Exception as e:
+#         print(e)
+#         return Response(
+#                     response=json.dumps({
+#                         "status": "unsuccessful"
+#                             }), 
+#                     status=500, 
+#                     mimetype="application/json"
+#                     )
+
+# @app.route("/complaint", methods=["GET"])
+# def get():
+#     try:
+#         cursor = db[live_collection].find()
+#         data = list(cursor)
+#         data_complaint = [data_dict for data_dict in data if data_dict['Concern_Type'] == 'complaint']
+#         for param in data:
+#             param["_id"] = str(param["_id"])
+#         return Response(
+#                     response=json.dumps(data_complaint), 
+#                     status=200, 
+#                     mimetype="application/json"
+#                     )
+
+
+#     except Exception as e:
+#         print(e)
+#         return Response(
+#                     response=json.dumps({
+#                         "status": "unsuccessful"
+#                             }), 
+#                     status=500, 
+#                     mimetype="application/json"
+#                     )
+
+@app.route("/<concern>", methods=["GET"])
+def get(concern):
     try:
         cursor = db[live_collection].find()
         data = list(cursor)
-        data_Request = [data_dict for data_dict in data if data_dict['Concern_Type'] == 'request']
-        for param in data_Request:
-            param["_id"] = str(param["_id"])
-        return Response(
-                    response=json.dumps(data_Request), 
-                    status=200, 
-                    mimetype="application/json"
-                    )
-
-
-    except Exception as e:
-        print(e)
-        return Response(
-                    response=json.dumps({
-                        "status": "unsuccessful"
-                            }), 
-                    status=500, 
-                    mimetype="application/json"
-                    )
-
-@app.route("/complaint", methods=["GET"])
-def get():
-    try:
-        cursor = db[live_collection].find()
-        data = list(cursor)
-        data_complaint = [data_dict for data_dict in data if data_dict['Concern_Type'] == 'complaint']
+        data_concern = [data_dict for data_dict in data if data_dict['Concern_Type'] == concern]
         for param in data:
             param["_id"] = str(param["_id"])
         return Response(
-                    response=json.dumps(data_complaint), 
-                    status=200, 
-                    mimetype="application/json"
-                    )
-
-
-    except Exception as e:
-        print(e)
-        return Response(
-                    response=json.dumps({
-                        "status": "unsuccessful"
-                            }), 
-                    status=500, 
-                    mimetype="application/json"
-                    )
-
-@app.route("/question", methods=["GET"])
-def get():
-    try:
-        cursor = db[live_collection].find()
-        data = list(cursor)
-        data_question = [data_dict for data_dict in data if data_dict['Concern_Type'] == 'question']
-        for param in data:
-            param["_id"] = str(param["_id"])
-        return Response(
-                    response=json.dumps(data_question), 
+                    response=json.dumps(data_concern), 
                     status=200,
                     mimetype="application/json"
                     )
