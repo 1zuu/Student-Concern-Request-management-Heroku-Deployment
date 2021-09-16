@@ -45,9 +45,11 @@ try:
     client = MongoClient(db_url)
     db = client[database]
     client.server_info()
-
+    print("DB accessed !")
 except Exception as e:
+    print("#############################################################")
     print(e)
+    print("#############################################################")
 
 @app.route("/insert", methods=["POST"])
 def insert():
@@ -139,9 +141,13 @@ def get(concern):
     try:
         cursor = db[live_collection].find()
         data = list(cursor)
-        data_concern = [data_dict for data_dict in data if data_dict['Concern_Type'] == concern]
+        data_concern = []
         for param in data:
-            param["_id"] = str(param["_id"])
+            if "Concern_Type" in param:
+                if param["Concern_Type"] == concern:
+                    param["_id"] = str(param["_id"])
+                    data_concern.append(param)
+
         return Response(
                     response=json.dumps(data_concern), 
                     status=200,
@@ -150,7 +156,9 @@ def get(concern):
 
 
     except Exception as e:
+        print("#############################################################")
         print(e)
+        print("#############################################################")
         return Response(
                     response=json.dumps({
                         "status": "unsuccessful"
@@ -179,7 +187,9 @@ def update():
                     mimetype="application/json"
                     )
     except Exception as e:
+        print("#############################################################")
         print(e)
+        print("#############################################################")
         return Response(
                     response=json.dumps({
                         "status": "can not update user {}".format(id)
