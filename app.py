@@ -73,10 +73,10 @@ def insert():
         else:
             return Response(
                         response=json.dumps({
-                            "status": "success",
+                            "status": "unsuccess",
                             "id" : "Invalid Response. Please Input Gender, Age Group & Year"
                                 }), 
-                        status=200, 
+                        status=500, 
                         mimetype="application/json"
                         )       
 
@@ -92,7 +92,7 @@ def get():
             param["_id"] = str(param["_id"])
         return Response(
                     response=json.dumps(data), 
-                    status=500, 
+                    status=200, 
                     mimetype="application/json"
                     )
 
