@@ -93,7 +93,7 @@ def get():
             param["_id"] = str(param["_id"])
         return Response(
                     response=json.dumps(data_Request), 
-                    status=500, 
+                    status=200, 
                     mimetype="application/json"
                     )
 
@@ -118,7 +118,7 @@ def get():
             param["_id"] = str(param["_id"])
         return Response(
                     response=json.dumps(data_complaint), 
-                    status=500, 
+                    status=200, 
                     mimetype="application/json"
                     )
 
