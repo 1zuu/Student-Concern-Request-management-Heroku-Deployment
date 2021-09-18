@@ -143,8 +143,9 @@ def get(concern):
         data = list(cursor)
         data_concern = []
         for param in data:
-            if "Concern_Type" in param:
+            if ("Concern_Type" in param) and ("solution" in param):
                 if param["Concern_Type"] == concern:
+                    del param["solution"]
                     param["_id"] = str(param["_id"])
                     data_concern.append(param)
 
