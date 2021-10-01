@@ -15,7 +15,11 @@ https://student-concern-request-manage.herokuapp.com/concern
 https://student-concern-request-manage.herokuapp.com/Complaint
 https://student-concern-request-manage.herokuapp.com/Request
 
+##########################  POST API  ########################
+https://student-concern-request-manage.herokuapp.com/insert
 
+##########################  UPDATE API  ########################
+https://student-concern-request-manage.herokuapp.com/update
 
 
 http://192.168.1.4:5000/concern
