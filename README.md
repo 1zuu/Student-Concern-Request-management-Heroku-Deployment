@@ -4,10 +4,20 @@
 DB URL : mongodb+srv://admin:<password>@cluster0.lx3sd.mongodb.net/test
 
 REQUEST 1 : {"Gender"  : "Female", "Age Group" : "21-25", "Year" : "3"}
+           
 REQUEST 2 : {"concern" : "Can I join to mulitiple sports teams?"}
+            {"concern" : "There were more flies in the canteen."}
 
 heroku logs --tail --app student-concern-request-manage
+
+##########################  GET APIs  ########################
 https://student-concern-request-manage.herokuapp.com/concern
+https://student-concern-request-manage.herokuapp.com/Complaint
+https://student-concern-request-manage.herokuapp.com/Request
+
+
+
+
 http://192.168.1.4:5000/concern
 
 
