@@ -15,6 +15,7 @@ class SCRM_Inference(object):
         self.scrm = SCRM_Model()
         self.scrm.run()
         self.vocab = self.scrm.word2index
+        self.concern_dict = get_concern_dict()
 
     def data_to_features(self):
         data = np.load(data_feature_path, allow_pickle=True)
@@ -69,8 +70,26 @@ class SCRM_Inference(object):
         categories = self.apply_inverse_transform(categories)
         return self.solutions[neighbor], categories
 
+    def rule_based_response(self, request):
+        concern = request['concern']
+        concern = preprocess_one(concern)
+        if concern in self.concern_dict:
+            solution = self.concern_dict[concern]
+            response = {
+                'concern':solution[0],
+                'solution': solution[1],
+                'Department' : solution[2],
+                'Sub_Section' : solution[3],
+                'Concern_Type' : solution[4]
+                    }
+            return response
+        return None
+
     def make_response(self, request):
         concern = request['concern']
+        response = self.rule_based_response(request)
+        if response is not None:
+            return response
         solution, categories = self.predict_best_solution(concern)
         response = {
             'concern':concern,

@@ -136,3 +136,14 @@ def read_mongo():
 
 def get_data():
     return derive_vocabulary()
+
+def get_concern_dict():
+    df = pd.read_csv(data_path)
+    df = df.dropna(axis=0)
+    df = df[['Student_Concern','Solution','Department','Sub_Section', 'Concern_Type']]
+    concern_dict = {}
+    for _, row in df.iterrows():
+        concern = row['Student_Concern']
+        preprocessed_concern = preprocess_one(concern)
+        concern_dict[preprocessed_concern] = row.values
+    return concern_dict
