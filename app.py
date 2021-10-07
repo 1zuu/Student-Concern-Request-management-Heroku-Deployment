@@ -54,7 +54,7 @@ except Exception as e:
 @app.route("/insert", methods=["POST"])
 def insert():
     try:
-        concerns_data = request.get_json()
+        concerns_data = request.get_json(force=True)
         cursor = db[live_collection].find()
         data = list(cursor)
         if len(data) == 0:
@@ -174,7 +174,7 @@ def update():
         data = list(db[live_collection].find())[-1]
         obj_id = str(data["_id"])
 
-        concern_data = request.get_json()
+        concern_data = request.get_json(force=True)
         response = model.make_response(concern_data)
         dbResponse = db[live_collection].update_one(
                                         {"_id": ObjectId(obj_id)}, 
